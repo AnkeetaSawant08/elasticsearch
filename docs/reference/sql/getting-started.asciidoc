@@ -24,7 +24,10 @@ And now you can execute SQL using the <<sql-rest>> right away:
 --------------------------------------------------
 POST /_xpack/sql?format=txt
 {
-    "query": "SELECT * FROM library WHERE release_date < '2000-01-01'"
+    "query": "select count(1) as final_count from (
+select 1 from shipment2 where dmonth='06' and dyear="2018" and cproddesc="dart apex"  and csubproddesc="prepaid"
+union all
+select 1 from shipment2 where dmonth='06' and dyear="2018" and cproddesc="dart apex"  and csubproddesc="cod")a1;"
 }
 --------------------------------------------------
 // CONSOLE
